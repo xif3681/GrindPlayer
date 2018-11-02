@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--script type="text/javascript" src="http://yandex.st/swfobject/2.2/swfobject.min.js"></script-->
+    <script type="text/javascript" src="swfobject.min.js"></script>
+    <script type="text/javascript">
+        function play() {
+            var url = document.getElementById("url").value;
+            var flashvars = {
+                src: url
+            };
+            var params = {
+                allowFullScreen: true
+                , allowScriptAccess: "always"
+                , bgcolor: "#000000"
+            };
+            var attrs = {
+                name: "player"
+            };
+
+            swfobject.embedSWF("GrindPlayer.swf", "player", "854", "480", "10.2", null, flashvars, params, attrs);
+        }
+    </script>
+</head>
+<body>
+<div id="player"></div>
+<div>
+    <input type="text" id="url" name="url" value="rtmp://172.18.1.134/live1">
+    <button id="play_btn" type="button" onclick="play()">play</button>
+</div>
+<object name="player" width="854" height="480" id="player1" data="GrindPlayer.swf" type="application/x-shockwave-flash"
+    style="visibility: visible;">
+    <param name="allowFullScreen" value="true" />
+    <param name="allowScriptAccess" value="always" />
+    <param name="bgcolor" value="#000000" />
+    <param name="flashvars" value="src=rtmp://172.18.1.134/live1" />
+    <embed src="src=rtmp://172.18.1.134/live1" quality="high" width="550" height="400" name="allowFullScreen" 
+        allowScriptAccess="sameDomain" type="application/x-shockwave-flash"  />
+</object>
+
+
+</body>
+</html>
